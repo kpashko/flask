@@ -20,23 +20,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">My scratchpad</a>
+                <a class="navbar-brand" href="/">Home</a>
+                <a class="navbar-brand" href="/notes">Notes</a>
             </div>
         </div>
         </nav>
 
 
     <div class="container">
-        {% for note in notes %}
-        <div class="row">
-            {{ note.content }}
-        </div>
-        {% endfor %}
+
 
         <div class="row">
             <form action="." method="POST">
-                <textarea class="form-control" name="contents" placeholder="Enter a comment"></textarea>
-                <input type="submit" class="btn btn-success" value="Post comment">
+                <textarea class="form-control" name="contents" placeholder="Write your thoughts"></textarea>
+                <input type="submit" class="btn btn-success" value="Save note">
             </form>
         </div> <!-- /.container -->
     </body>

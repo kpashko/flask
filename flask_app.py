@@ -1,5 +1,7 @@
 from flask import Flask, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
+from collections import Counter
+
 
 
 app = Flask(__name__)
@@ -21,15 +23,21 @@ class Note(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(4096))
+    unique = db.Column(db.Integer)
 
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
-        return render_template("main_page.html", notes=Note.query.all())
+        return render_template("main_page.html")
 
-    note = Note(content=request.form["contents"])
+    article=request.form["contents"]
+    counter = len(Counter(article.split()))
+    note = Note(content=article, unique = counter)
     db.session.add(note)
     db.session.commit()
     return redirect(url_for('index'))
 
+@app.route("/notes")
+def notes():
+    return render_template("notes.html", notes=Note.query.order_by((Note.unique).desc()))
