@@ -7,10 +7,10 @@ from collections import Counter
 app = Flask(__name__)
 app.config["DEBUG"] = True
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-    username="kpashko",
-    password="mydatabase",
-    hostname="kpashko.mysql.pythonanywhere-services.com",
-    databasename="kpashko$notes",
+    username="",
+    password="",
+    hostname="",
+    databasename="",
 )
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
