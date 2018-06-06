@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+        integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+        crossorigin="anonymous">
+        <title>My scratchboard page</title>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Home</a>
+                <a class="navbar-brand" href="/notes">Notes</a>
+            </div>
+        </div>
+        </nav>
+
+
+    <div class="container">
+        {% for note in notes %}
+        <div class="col-sm-5 col-sm-offset-1">
+            {{ note.content }}
+        </div>
+        <div class="col-sm-5 col-sm-offset-1">
+            {{ note.unique }}
+        </div>
+
+        {% endfor %}
+
+        </div> <!-- /.container -->
+    </body>
+</html>
